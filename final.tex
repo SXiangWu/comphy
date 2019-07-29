@@ -1,0 +1,83 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n0}{%
+\subsection{布朗运动与 DNA 随机行走}\label{header-n0}}
+
+\hypertarget{header-n2}{%
+\paragraph{摘要}\label{header-n2}}
+
+参考文献《布朗运动100年》，本文首先简要介绍一下布朗运动与随机行走在数学上的联系。接着采用数值模拟的方法来详细说明这一点。然后就文献中提到的
+DNA Walker 现象进行数值计算。
+
+\hypertarget{header-n4}{%
+\subsubsection{扩散方程与随机行走}\label{header-n4}}
+
+以下内容来自参考文献{[}{]}，这里只是做一下简要回顾。著名的扩散方程具有以下形式，
+
+\[\frac{\partial \rho}{\partial t}=D \frac{\partial^{2} \rho}{\partial x^{2}}\]
+
+假定在 \(t =0\) 时刻粒子位于 \(x =0\) 处，即
+\(\rho(x , 0) = \delta ( x )\)，扩散方程的解是：
+
+\[\rho(x, t)=\frac{1}{\sqrt{4 \pi D t}} e^{\frac{x^{2}}{4 D t}},\]
+
+即粒子的密度遵从高斯分布。对于固定的时刻 \(t\) ，有，
+
+\[\langle x\rangle= 0, \quad\left\langle x^{2}\right\rangle= 2 D t,\]
+
+可以验证
+\(\displaystyle{\int_{-\infty}^{\infty}\rho(x,t) \mathrm{d}\,t=1}\)。这样就得到了扩散长度公式，
+
+\[\sqrt{\left\langle x^{2}\right\rangle}=\sqrt{2 D t},\]
+
+这里出现了著名的爱因斯坦的 \(\frac{1} {2} \) 指数。
+
+\end{document}
